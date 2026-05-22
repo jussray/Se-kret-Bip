@@ -215,39 +215,146 @@ const BottomNav = () => (
   </View>
 );
 
-  if (screen === 'journal') {
-    return (
-      <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
-        <Text style={styles.logo}>Se’kret Bip</Text>
-        <Text style={styles.welcome}>Secret Journal ✨</Text>
-        <Text style={styles.subtitle}>Let your thoughts out safely.</Text>
+ if (screen === 'pages') {
+  return (
+    <ScrollView
+      contentContainerStyle={[
+        styles.container,
+        { backgroundColor: getBackground() },
+      ]}
+    >
 
-        <TextInput
-          style={styles.journalInput}
-          placeholder="Write your thoughts here..."
-          placeholderTextColor="#94A3B8"
-          multiline
-          value={journalText}
-          onChangeText={setJournalText}
-        />
+      <Text style={styles.logo}>Se’kret Bip</Text>
 
-        <TouchableOpacity style={styles.button} onPress={saveEntry}>
-          <Text style={styles.buttonText}>Save Entry</Text>
-        </TouchableOpacity>
+      <Text style={styles.welcome}>💜 Se’kret Pages</Text>
 
-        <Text style={styles.sectionTitle}>Past Entries</Text>
+      <Text style={styles.subtitle}>
+        Your private emotional world.
+      </Text>
 
-        {entries.map((entry) => (
-          <View key={entry.id} style={styles.entryCard}>
-            <Text style={styles.entryDate}>{entry.date} • {entry.time} • {entry.mood}</Text>
-            <Text style={styles.entryText}>{entry.text}</Text>
-          </View>
-        ))}
+      <View style={styles.bityHeroCard}>
 
-        <BottomNav />
-      </ScrollView>
-    );
-  }
+        <Text style={styles.bityHeroEmoji}>💜</Text>
+
+        <Text style={styles.bityHeroTitle}>
+          Built for expression, not pressure.
+        </Text>
+
+        <Text style={styles.bityHeroText}>
+          Write it. Voice it. Save moments.
+          Feel safely without performing.
+        </Text>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        ✍️ Se’kret Space
+      </Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('journal')}
+      >
+        <Text style={styles.buttonText}>
+          ✍️ Write It Out
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('voice')}
+      >
+        <Text style={styles.buttonText}>
+          🎙️ Bippin BRB
+        </Text>
+      </TouchableOpacity>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          💭 Floating thoughts.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🎧 Voice moments.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🔐 Private emotional space.
+        </Text>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        🌈 Moodboards
+      </Text>
+
+      <View style={styles.statsRow}>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>🌙</Text>
+
+          <Text style={styles.statLabel}>
+            Late Night
+          </Text>
+        </View>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>☁️</Text>
+
+          <Text style={styles.statLabel}>
+            Soft Feelings
+          </Text>
+        </View>
+
+      </View>
+
+      <View style={styles.statsRow}>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>🎵</Text>
+
+          <Text style={styles.statLabel}>
+            Soundtrack Feelings
+          </Text>
+        </View>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>📸</Text>
+
+          <Text style={styles.statLabel}>
+            Memory Drops
+          </Text>
+        </View>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        🌙 Safe Reminder
+      </Text>
+
+      <View style={styles.parentBridgeCard}>
+
+        <Text style={styles.cardEmoji}>
+          🌙
+        </Text>
+
+        <Text style={styles.cardText}>
+          Your Se’kret space stays yours.
+        </Text>
+
+        <Text style={styles.bridgeText}>
+          Parent Bridge never reads your pages,
+          voice notes, or private thoughts.
+        </Text>
+
+      </View>
+
+      <BottomNav />
+
+    </ScrollView>
+  );
+}
 
  if (screen === 'calm') {
   return (
