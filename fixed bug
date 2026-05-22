@@ -690,6 +690,180 @@ if (screen === 'circle') {
   );
 }
 
+if (screen === 'bity') {
+  return (
+    <ScrollView
+      contentContainerStyle={[
+        styles.container,
+        { backgroundColor: getBackground() },
+      ]}
+    >
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🏙️ My Bity</Text>
+
+      <Text style={styles.subtitle}>
+        Your people. Your peace. Your support system.
+      </Text>
+
+      <View style={styles.bityHeroCard}>
+
+        <Text style={styles.bityHeroEmoji}>💜</Text>
+
+        <Text style={styles.bityHeroTitle}>
+          Built on trust, not control.
+        </Text>
+
+        <Text style={styles.bityHeroText}>
+          Your Bity is your emotional neighborhood —
+          trusted peers, shared growth, and support that actually feels safe.
+        </Text>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        ✨ Bity Energy
+      </Text>
+
+      <View style={styles.statsRow}>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>🌱</Text>
+          <Text style={styles.statNumber}>4</Text>
+          <Text style={styles.statLabel}>Shared Growth</Text>
+        </View>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>👥</Text>
+          <Text style={styles.statNumber}>8</Text>
+          <Text style={styles.statLabel}>Trusted Peers</Text>
+        </View>
+
+      </View>
+
+      <View style={styles.statsRow}>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>💬</Text>
+          <Text style={styles.statNumber}>12</Text>
+          <Text style={styles.statLabel}>Real Talks</Text>
+        </View>
+
+        <View style={styles.statCard}>
+          <Text style={styles.statEmoji}>✨</Text>
+          <Text style={styles.statNumber}>5</Text>
+          <Text style={styles.statLabel}>Support Streak</Text>
+        </View>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        🫂 Peer Requests
+      </Text>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          💜 Ava wants to join your Bity.
+        </Text>
+
+        <View style={styles.requestButtonRow}>
+
+          <TouchableOpacity style={styles.acceptButton}>
+            <Text style={styles.requestButtonText}>
+              Accept
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.declineButton}>
+            <Text style={styles.requestButtonText}>
+              Decline
+            </Text>
+          </TouchableOpacity>
+
+        </View>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        👥 Trusted People
+      </Text>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          💜 Ava
+        </Text>
+
+        <Text style={styles.entryDate}>
+          “Always checking in.”
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          🌙 Marcus
+        </Text>
+
+        <Text style={styles.entryDate}>
+          “Late night calm buddy.”
+        </Text>
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        💜 Parent Bridge
+      </Text>
+
+      <View style={styles.parentBridgeCard}>
+
+        <Text style={styles.cardEmoji}>
+          💜
+        </Text>
+
+        <Text style={styles.cardText}>
+          Parent Bridge Active
+        </Text>
+
+        <Text style={styles.bridgeText}>
+          Shared growth this week: 78%
+        </Text>
+
+        <Text style={styles.bridgeText}>
+          Communication streak: 5 days
+        </Text>
+
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>
+            Open Parent Bridge
+          </Text>
+        </TouchableOpacity>
+
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        🌱 Shared Growth
+      </Text>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          ✨ 5 supportive check-ins completed
+        </Text>
+
+        <Text style={styles.entryText}>
+          🌱 3 shared goals completed
+        </Text>
+
+        <Text style={styles.entryText}>
+          💬 2 meaningful conversations this week
+        </Text>
+      </View>
+
+      <BottomNav />
+
+    </ScrollView>
+  );
+}
+
   if (screen === 'comfort') {
     return (
       <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
