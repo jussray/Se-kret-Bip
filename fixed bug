@@ -344,7 +344,9 @@ if (screen === 'mindReset') {
       <Text style={styles.logo}>Se’kret Bip</Text>
       <Text style={styles.welcome}>🌙 7-Min Mind Reset</Text>
       <Text style={styles.subtitle}>Slow the thoughts. Come back to you.</Text>
-
+      <Text style={styles.entryDate}>
+  Minute 1 of 7 🌙
+</Text>
       <View style={styles.messageCard}>
         <Text style={styles.cardEmoji}>🌙</Text>
         <Text style={styles.cardText}>Minute by minute. No pressure. Just reset.</Text>
