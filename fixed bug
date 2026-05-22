@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; 
+ import React, { useState, useEffect, useRef } from 'react'; 
  import {
   Text,
   StyleSheet,
@@ -916,7 +916,13 @@ if (screen === 'bity') {
       >
         <Text style={styles.buttonText}>🌐 Bip Circle</Text>
       </TouchableOpacity>
-
+      
+      <TouchableOpacity
+  style={styles.button}
+  onPress={() => setScreen('bity')}
+>
+  <Text style={styles.buttonText}>🏙️ My Bity</Text>
+</TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => setScreen('comfort')}
