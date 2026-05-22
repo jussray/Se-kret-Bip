@@ -239,40 +239,97 @@ const BottomNav = () => (
     );
   }
 
-  if (screen === 'calm') {
-    return (
-      <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
-        <Text style={styles.logo}>Se’kret Bip</Text>
-       <Text style={styles.welcome}>🌙 Bip Calmly</Text>
-       <Text style={styles.subtitle}>Stay here a sec.</Text>
+ if (screen === 'calm') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
 
- <Animated.View style={[styles.circle, { transform: [{ scale: breatheAnim }] }]}>
-          <Text style={styles.circleText}>Breathe</Text>
-   </Animated.View>
+      <Text style={styles.logo}>Se’kret Bip</Text>
 
-        <View style={styles.messageCard}>
-          <Text style={styles.cardEmoji}>🫧</Text>
-          <Text style={styles.cardText}>Inhale. Hold. Exhale. Stay with the Bip.</Text>
-<TouchableOpacity
-  style={styles.smallButton}
-  onPress={changeMessage}
->
-  <Text style={styles.smallButtonText}>
-    Another Calm Thought ✨
-  </Text>
-</TouchableOpacity>
-<View style={styles.entryCard}>
-  <Text style={styles.entryText}>🫧 Unclench your jaw.</Text>
-  <Text style={styles.entryText}>🌙 Relax your shoulders.</Text>
-  <Text style={styles.entryText}>💧 Drink some water.</Text>
-  <Text style={styles.entryText}>📵 Step away from the noise for a minute.</Text>
-</View>
+      <Text style={styles.welcome}>🌙 Bip Calmly</Text>
+
+      <Text style={styles.subtitle}>
+        Stay here a sec.
+      </Text>
+
+      <Animated.View
+        style={[
+          styles.circle,
+          { transform: [{ scale: breatheAnim }] },
+        ]}
+      >
+        <Text style={styles.circleText}>Breathe</Text>
+      </Animated.View>
+
+      <View style={styles.messageCard}>
+
+        <Text style={styles.cardEmoji}>🫧</Text>
+
+        <Text style={styles.cardText}>
+          Inhale. Hold. Exhale. Stay with the Bip.
+        </Text>
+
+        <TouchableOpacity
+          style={styles.smallButton}
+          onPress={changeMessage}
+        >
+          <Text style={styles.smallButtonText}>
+            Another Calm Thought ✨
+          </Text>
+        </TouchableOpacity>
+
+        <View style={styles.entryCard}>
+          <Text style={styles.entryText}>
+            🫧 Unclench your jaw.
+          </Text>
+
+          <Text style={styles.entryText}>
+            🌙 Relax your shoulders.
+          </Text>
+
+          <Text style={styles.entryText}>
+            💧 Drink some water.
+          </Text>
+
+          <Text style={styles.entryText}>
+            📵 Step away from the noise for a minute.
+          </Text>
         </View>
 
-        <BottomNav />
-      </ScrollView>
-    );
-  }
+      </View>
+
+      <Text style={styles.sectionTitle}>
+        🌙 Quick Resets
+      </Text>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>
+          🌙 Start 7-Min Mind Reset
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>
+          🫧 Start 7-Min Body Reset
+        </Text>
+      </TouchableOpacity>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          🌙 Mind Reset helps slow racing thoughts.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🫧 Body Reset helps release stress physically.
+        </Text>
+
+      </View>
+
+      <BottomNav />
+
+    </ScrollView>
+  );
+}
 
   if (screen === 'growth') {
     return (
