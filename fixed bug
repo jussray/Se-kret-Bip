@@ -882,107 +882,84 @@ if (screen === 'parentBridge') {
         { backgroundColor: getBackground() },
       ]}
     >
-
       <Text style={styles.logo}>Se’kret Bip</Text>
 
       <Text style={styles.welcome}>💜 Se’krets 2 Tell</Text>
 
       <Text style={styles.subtitle}>
-        Built on trust, not control.
+        Growth between us. Built on trust, not control.
       </Text>
 
       <View style={styles.parentBridgeCard}>
-
         <Text style={styles.cardEmoji}>💜</Text>
 
         <Text style={styles.cardText}>
-          Family support without invading your Se’kret space.
+          Parent Bridge Active
         </Text>
 
         <Text style={styles.bridgeText}>
-          This bridge helps parents understand patterns,
-          not private pages.
+          Parents get support signals, not your private Se’kret space.
         </Text>
 
+        <Text style={styles.bridgeText}>
+          Mood energy today: Soft / Low
+        </Text>
       </View>
 
-      <Text style={styles.sectionTitle}>
-        🌱 Shared Growth
-      </Text>
+      <Text style={styles.sectionTitle}>🌱 Growth Between Us</Text>
 
       <View style={styles.entryCard}>
-
-        <Text style={styles.entryText}>
-          ✨ 5 supportive check-ins this week
-        </Text>
-
-        <Text style={styles.entryText}>
-          💬 2 meaningful conversations started
-        </Text>
-
-        <Text style={styles.entryText}>
-          🌙 3 Bip Calmly nights completed
-        </Text>
-
+        <Text style={styles.entryText}>🔥 Connection streak: 5 days</Text>
+        <Text style={styles.entryText}>💬 Real talks this week: 2</Text>
+        <Text style={styles.entryText}>🌙 Bip Calmly nights: 3</Text>
+        <Text style={styles.entryText}>✨ Support score: 78%</Text>
       </View>
 
-      <Text style={styles.sectionTitle}>
-        📊 Parent Insights
-      </Text>
+      <Text style={styles.sectionTitle}>📊 Parent Insights</Text>
 
       <View style={styles.entryCard}>
-
-        <Text style={styles.entryText}>
-          Mood energy: Soft / Low
-        </Text>
-
-        <Text style={styles.entryText}>
-          Best support style: Gentle encouragement
-        </Text>
-
-        <Text style={styles.entryText}>
-          Suggested check-in:
-          “Want company or space?”
-        </Text>
-
+        <Text style={styles.entryText}>Current vibe: Needs gentleness</Text>
+        <Text style={styles.entryText}>Best support style: Encourage, don’t pressure</Text>
+        <Text style={styles.entryText}>Helpful ask: “Want advice or just company?”</Text>
       </View>
 
-      <Text style={styles.sectionTitle}>
-        🔐 Privacy Promise
-      </Text>
+      <Text style={styles.sectionTitle}>💬 Conversation Tips</Text>
 
       <View style={styles.entryCard}>
+        <Text style={styles.entryText}>Instead of: “What’s wrong?”</Text>
+        <Text style={styles.entryText}>Try: “I’m here. Do you want space or support?”</Text>
+      </View>
 
-        <Text style={styles.entryText}>
-          ✍️ Se’kret Pages stay private.
-        </Text>
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>Instead of: “You never talk to me.”</Text>
+        <Text style={styles.entryText}>Try: “I miss hearing your thoughts.”</Text>
+      </View>
 
-        <Text style={styles.entryText}>
-          🎙️ Bippin BRB stays private.
-        </Text>
+      <Text style={styles.sectionTitle}>🎯 Shared Goals</Text>
 
-        <Text style={styles.entryText}>
-          🌐 Bip Circle posts stay protected.
-        </Text>
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>✅ Have one calm check-in this week</Text>
+        <Text style={styles.entryText}>✅ Do one tech-free dinner</Text>
+        <Text style={styles.entryText}>⬜ Take a walk together</Text>
+      </View>
 
-        <Text style={styles.entryText}>
-          💜 Parents see support signals,
-          not secrets.
-        </Text>
+      <Text style={styles.sectionTitle}>🔐 Privacy Promise</Text>
 
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>✍️ Se’kret Pages stay private.</Text>
+        <Text style={styles.entryText}>🎙️ Bippin BRB stays private.</Text>
+        <Text style={styles.entryText}>🌐 Bip Circle posts stay protected.</Text>
+        <Text style={styles.entryText}>💜 Parent Bridge shows patterns, not secrets.</Text>
       </View>
 
       <TouchableOpacity
         style={styles.button}
         onPress={() => setScreen('bity')}
       >
-        <Text style={styles.buttonText}>
-          Back to My Bity 🏙️
-        </Text>
+        <Text style={styles.buttonText}>Back to My Bity 🏙️</Text>
       </TouchableOpacity>
 
       <BottomNav />
-
     </ScrollView>
   );
 }
