@@ -261,6 +261,12 @@ const BottomNav = () => (
     Another Calm Thought ✨
   </Text>
 </TouchableOpacity>
+<View style={styles.entryCard}>
+  <Text style={styles.entryText}>🫧 Unclench your jaw.</Text>
+  <Text style={styles.entryText}>🌙 Relax your shoulders.</Text>
+  <Text style={styles.entryText}>💧 Drink some water.</Text>
+  <Text style={styles.entryText}>📵 Step away from the noise for a minute.</Text>
+</View>
         </View>
 
         <BottomNav />
