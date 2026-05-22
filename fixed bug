@@ -94,11 +94,13 @@ useEffect(() => {
     }
   };
 
-  const getBackground = () => {
-    if (theme === 'flower') return '#2D1B3D';
-    if (theme === 'rain') return '#1E293B';
-    return '#3B1930';
-  };
+const getBackground = () => {
+  if (theme === 'flower') return '#3B0A2E';
+  if (theme === 'rain') return '#071A3D';
+  if (theme === 'forest') return '#052E16';
+  if (theme === 'lavender') return '#2E1065';
+  return '#3B1930';
+};
 
   const getHeroText = () => {
     if (mood === 'Happy') return "I’m glad\nyou’re smiling\ntonight 🌤️";
