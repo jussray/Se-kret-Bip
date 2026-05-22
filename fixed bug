@@ -1060,16 +1060,29 @@ if (screen === 'parentBridge') {
         <Text style={styles.entryText}>⬜ Take a walk together</Text>
       </View>
 
-      <Text style={styles.sectionTitle}>🔐 Privacy Promise</Text>
+      <Text style={styles.sectionTitle}>🔐 Mutual Share Promise</Text>
 
-      <View style={styles.entryCard}>
-        <Text style={styles.entryText}>✍️ Se’kret Pages stay private.</Text>
-        <Text style={styles.entryText}>🎙️ Bippin BRB stays private.</Text>
-        <Text style={styles.entryText}>🌐 Bip Circle posts stay protected.</Text>
-      <Text style={styles.entryText}>
-  💜 Built to understand you, not monitor you.
-</Text>
-      </View>
+<View style={styles.entryCard}>
+  <Text style={styles.entryText}>
+    💜 Both sides keep private thoughts private.
+  </Text>
+
+  <Text style={styles.entryText}>
+    ✍️ Se’kret Pages stay yours.
+  </Text>
+
+  <Text style={styles.entryText}>
+    🎙️ Bippin BRB stays yours.
+  </Text>
+
+  <Text style={styles.entryText}>
+    🌱 Only shared moments cross the bridge.
+  </Text>
+
+  <Text style={styles.entryText}>
+    💜 Built to understand you, not monitor you.
+  </Text>
+</View>
 
       <TouchableOpacity
         style={styles.button}
