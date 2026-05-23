@@ -1206,13 +1206,33 @@ if (screen === 'parentBridge') {
         <Text style={styles.buttonText}>🌐 Bip Circle</Text>
       </TouchableOpacity>
       
-    
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => setScreen('comfort')}
-      >
-        <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
-      </TouchableOpacity>
+    <TouchableOpacity
+  style={[
+    styles.button,
+    userRole === 'teen' && {
+      backgroundColor: '#475569',
+      opacity: 0.6,
+    },
+  ]}
+  onPress={() => {
+    if (userRole === 'parent') {
+      setScreen('parentPortal');
+    }
+  }}
+>
+  <Text style={styles.buttonText}>
+    {userRole === 'teen'
+      ? '🔒 Parent Portal'
+      : '👨‍👩‍👧 Parent Portal'}
+  </Text>
+</TouchableOpacity>
+
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => setScreen('comfort')}
+>
+  <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
+</TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
