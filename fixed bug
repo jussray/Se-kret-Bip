@@ -1553,8 +1553,13 @@ if (screen === 'sharedGrowth') {
   </Text>
 </TouchableOpacity>
 
-<TouchableOpacity
-  style={styles.button}
+<TouchableOpacity style={styles.button} onPress={switchRole}>
+  <Text style={styles.buttonText}>
+    {userRole === 'teen'
+      ? '🔄 Switch to Parent Mode'
+      : '🔄 Switch to Teen Mode'}
+  </Text>
+</TouchableOpacity>
   onPress={() => setScreen('comfort')}
 >
   <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
