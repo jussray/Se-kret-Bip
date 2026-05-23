@@ -188,10 +188,16 @@ const reactToPost = (postId, reactionType) => {
   );
 };
 
-const changeMessage = () => {
+ const changeMessage = () => {
   setMessageIndex((prevIndex) => (prevIndex + 1) % comfortMessages.length);
 };
-  
+ const switchRole = () => {
+  if (userRole === 'teen') {
+    setUserRole('parent');
+  } else {
+    setUserRole('teen');
+  }
+};
 const BottomNav = () => (
   <View style={styles.bottomNav}>
     {[
