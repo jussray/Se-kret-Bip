@@ -1620,13 +1620,6 @@ if (screen === 'sharedGrowth') {
       >
         <Text style={styles.buttonText}>📈 Mood History</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => setScreen('circle')}
-      >
-        <Text style={styles.buttonText}>🌐 Bip Circle</Text>
-      </TouchableOpacity>
       
     <TouchableOpacity
   style={[
