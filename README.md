@@ -25,6 +25,12 @@ export default function App() {
   const [moodHistory, setMoodHistory] = useState([]);
   const [voiceNotes, setVoiceNotes] = useState([]);
   const [messageIndex, setMessageIndex] = useState(0);
+ const [userRole, setUserRole] = useState('teen');
+const [sharedMoments, setSharedMoments] = useState([]);
+const [supportAlerts, setSupportAlerts] = useState([]);
+const [parentMessages, setParentMessages] = useState([]);
+
+
   const breatheAnim = useRef(new Animated.Value(1)).current;
   const comfortMessages = [
     { emoji: '🌙', text: "You've survived every hard day so far. That matters." },
@@ -187,61 +193,294 @@ const reactToPost = (postId, reactionType) => {
 const changeMessage = () => {
   setMessageIndex((prevIndex) => (prevIndex + 1) % comfortMessages.length);
 };
+const switchRole = () => {
+  if (userRole === 'teen') {
+    setUserRole('parent');
+  } else {
+    setUserRole('teen');
+  }
+};
+if (screen === 'pages') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
 
-  if (screen === 'journal') {
-    return (
-      <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
-        <Text style={styles.logo}>Se’kret Bip</Text>
-        <Text style={styles.welcome}>Secret Journal ✨</Text>
-        <Text style={styles.subtitle}>Let your thoughts out safely.</Text>
+      <Text style={styles.logo}>Se’kret Bip</Text>
 
-        <TextInput
-          style={styles.journalInput}
-          placeholder="Write your thoughts here..."
-          placeholderTextColor="#94A3B8"
-          multiline
-          value={journalText}
-          onChangeText={setJournalText}
-        />
+      <Text style={styles.welcome}>💜 Se’kret Pages</Text>
 
-        <TouchableOpacity style={styles.button} onPress={saveEntry}>
-          <Text style={styles.buttonText}>Save Entry</Text>
-        </TouchableOpacity>
+      <Text style={styles.subtitle}>
+        Your private emotional world.
+      </Text>
 
-        <Text style={styles.sectionTitle}>Past Entries</Text>
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>💜</Text>
+        <Text style={styles.cardText}>
+          Built for expression, not pressure.
+        </Text>
+      </View>
 
-        {entries.map((entry) => (
-          <View key={entry.id} style={styles.entryCard}>
-            <Text style={styles.entryDate}>{entry.date} • {entry.time} • {entry.mood}</Text>
-            <Text style={styles.entryText}>{entry.text}</Text>
-          </View>
-        ))}
+      <TouchableOpacity style={styles.button} onPress={() => setScreen('journal')}>
+        <Text style={styles.buttonText}>✍️ Write It Out</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => setScreen('voice')}>
+        <Text style={styles.buttonText}>🎙️ Bippin BRB</Text>
+      </TouchableOpacity>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>💭 Floating thoughts.</Text>
+        <Text style={styles.entryText}>🎧 Voice moments.</Text>
+        <Text style={styles.entryText}>🔐 Private emotional space.</Text>
+      </View>
 
       <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
-      </ScrollView>
-    );
-  }
+
+    </ScrollView>
+  );
+}
+if (screen === 'journal') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>✍️ Write It Out</Text>
+
+      <Text style={styles.subtitle}>
+        A private page for whatever your heart needs to say.
+      </Text>
+
+      <TextInput
+        style={styles.journalInput}
+        placeholder="Write your Se’kret here..."
+        placeholderTextColor="#94A3B8"
+        multiline
+        value={journalText}
+        onChangeText={setJournalText}
+      />
+
+      <TouchableOpacity style={styles.button} onPress={saveEntry}>
+        <Text style={styles.buttonText}>Save Page 💜</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.sectionTitle}>Saved Pages</Text>
+
+      {entries.map((entry) => (
+        <View key={entry.id} style={styles.entryCard}>
+          <Text style={styles.entryDate}>
+            {entry.date} • {entry.time} • {entry.mood}
+          </Text>
+
+          <Text style={styles.entryText}>{entry.text}</Text>
+        </View>
+      ))}
+
+      <TouchableOpacity style={styles.button} onPress={() => setScreen('pages')}>
+        <Text style={styles.buttonText}>Back to Se’kret Pages 💜</Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+    </ScrollView>
+  );
+}
 
   if (screen === 'calm') {
-    return (
-      <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
-        <Text style={styles.logo}>Se’kret Bip</Text>
-        <Text style={styles.welcome}>Calm Space 🌙</Text>
-        <Text style={styles.subtitle}>Breathe slowly. You are safe here.</Text>
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
 
- <Animated.View style={[styles.circle, { transform: [{ scale: breatheAnim }] }]}>
-          <Text style={styles.circleText}>Breathe</Text>
-   </Animated.View>
+      <Text style={styles.logo}>Se’kret Bip</Text>
 
-        <View style={styles.messageCard}>
-          <Text style={styles.cardEmoji}>🫧</Text>
-          <Text style={styles.cardText}>Inhale. Hold. Exhale. Stay with the Bip.</Text>
-        </View>
+      <Text style={styles.welcome}>🌙 Bip Calmly</Text>
+
+      <Text style={styles.subtitle}>
+        Stay here a sec.
+      </Text>
+
+      <Animated.View
+        style={[
+          styles.circle,
+          { transform: [{ scale: breatheAnim }] },
+        ]}
+      >
+        <Text style={styles.circleText}>Breathe</Text>
+      </Animated.View>
+
+      <View style={styles.messageCard}>
+
+        <Text style={styles.cardEmoji}>
+          {comfortMessages[messageIndex].emoji}
+        </Text>
+
+        <Text style={styles.cardText}>
+          {comfortMessages[messageIndex].text}
+        </Text>
+
+        <TouchableOpacity
+          style={styles.smallButton}
+          onPress={changeMessage}
+        >
+          <Text style={styles.smallButtonText}>
+            Another Calm Thought ✨
+          </Text>
+        </TouchableOpacity>
+
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          🫧 Unclench your jaw.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🌙 Relax your shoulders.
+        </Text>
+
+        <Text style={styles.entryText}>
+          💧 Drink some water.
+        </Text>
+
+        <Text style={styles.entryText}>
+          📵 Step away from the noise for a minute.
+        </Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('mindReset')}
+      >
+        <Text style={styles.buttonText}>
+          🌙 7-Min Mind Reset
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('bodyReset')}
+      >
+        <Text style={styles.buttonText}>
+          🫧 7-Min Body Reset
+        </Text>
+      </TouchableOpacity>
 
       <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
-      </ScrollView>
-    );
-  }
+
+    </ScrollView>
+  );
+}
+if (screen === 'mindReset') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🌙 7-Min Mind Reset</Text>
+
+      <Text style={styles.subtitle}>
+        Slow the thoughts. Come back to you.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>🌙</Text>
+
+        <Text style={styles.cardText}>
+          Minute by minute. No pressure. Just reset.
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          1️⃣ Drop your shoulders.
+        </Text>
+
+        <Text style={styles.entryText}>
+          2️⃣ Breathe slower than your thoughts.
+        </Text>
+
+        <Text style={styles.entryText}>
+          3️⃣ Name 3 things you can see.
+        </Text>
+
+        <Text style={styles.entryText}>
+          4️⃣ Sip water before replying to anyone.
+        </Text>
+
+        <Text style={styles.entryText}>
+          5️⃣ Let one thought pass without chasing it.
+        </Text>
+
+        <Text style={styles.entryText}>
+          6️⃣ You do not have to solve everything tonight.
+        </Text>
+
+        <Text style={styles.entryText}>
+          7️⃣ One more breath. You’re still here.
+        </Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('calm')}
+      >
+        <Text style={styles.buttonText}>
+          Back to Bip Calmly 🌙
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}
+ 
+ if (screen === 'bodyReset') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🫧 7-Min Body Reset</Text>
+
+      <Text style={styles.subtitle}>
+        Move the stress out softly.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>🫧</Text>
+
+        <Text style={styles.cardText}>
+          No workout pressure. Just loosen up.
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>1️⃣ Roll your neck slowly.</Text>
+        <Text style={styles.entryText}>2️⃣ Shrug your shoulders up, then drop them.</Text>
+        <Text style={styles.entryText}>3️⃣ Shake your hands out.</Text>
+        <Text style={styles.entryText}>4️⃣ Stretch your arms over your head.</Text>
+        <Text style={styles.entryText}>5️⃣ Walk around the room for one minute.</Text>
+        <Text style={styles.entryText}>6️⃣ Do a tiny dance break. Yes, really 😭</Text>
+        <Text style={styles.entryText}>7️⃣ One deep breath. Tell your body thank you.</Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('calm')}
+      >
+        <Text style={styles.buttonText}>
+          Back to Bip Calmly 🌙
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}
 
   if (screen === 'growth') {
     return (
@@ -466,7 +705,12 @@ if (screen === 'circle') {
       >
         <Text style={styles.buttonText}>Post to Circle ✨</Text>
       </TouchableOpacity>
-
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => setScreen('bity')}
+>
+  <Text style={styles.buttonText}>🏙️ My Bity</Text>
+</TouchableOpacity>
       <Text style={styles.sectionTitle}>Recent Bips</Text>
 
       {circlePosts.length === 0 ? (
@@ -525,8 +769,332 @@ if (screen === 'circle') {
     </ScrollView>
   );
 }
+if (screen === 'bity') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
 
-  if (screen === 'comfort') {
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🏙️ My Bity</Text>
+
+      <Text style={styles.subtitle}>
+        Your people. Your peace. Your support system.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>💜</Text>
+
+        <Text style={styles.cardText}>
+          Built on trust, not control.
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          🌱 Shared Growth: 4
+        </Text>
+
+        <Text style={styles.entryText}>
+          👥 Trusted Peers: 8
+        </Text>
+
+        <Text style={styles.entryText}>
+          💬 Real Talks: 12
+        </Text>
+
+        <Text style={styles.entryText}>
+          ✨ Support Streak: 5
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentBridge')}
+      >
+        <Text style={styles.buttonText}>
+          💜 Se’krets 2 Tell
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}
+
+  if (screen === 'parentPortal') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>👨‍👩‍👧 Parent Portal</Text>
+
+      <Text style={styles.subtitle}>
+        Support without pressure. Connection without control.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>💜</Text>
+
+        <Text style={styles.cardText}>
+          Your role is support, not surveillance.
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentBridge')}
+      >
+        <Text style={styles.buttonText}>
+          💜 Se’krets 2 Tell
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('conversationKits')}
+      >
+        <Text style={styles.buttonText}>
+          🧠 Conversation Kits
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentReflections')}
+      >
+        <Text style={styles.buttonText}>
+          💭 Parent Reflections
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('supportAlerts')}
+      >
+        <Text style={styles.buttonText}>
+          🚨 Support Alerts
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+} if (screen === 'parentBridge') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>💜 Se’krets 2 Tell</Text>
+
+      <Text style={styles.subtitle}>
+        Growth between us. Built on trust, not control.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>💜</Text>
+        <Text style={styles.cardText}>Parent Bridge Active</Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>Parents get support signals, not private Se’kret pages.</Text>
+        <Text style={styles.entryText}>Mood energy today: Soft / Low</Text>
+        <Text style={styles.entryText}>Best support style: Encourage, don’t pressure.</Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>💬 Try: “Want advice or just company?”</Text>
+        <Text style={styles.entryText}>🌙 Try: “I’m here. Do you want space or support?”</Text>
+      </View>
+
+      <TouchableOpacity style={styles.button} onPress={() => setScreen('bity')}>
+        <Text style={styles.buttonText}>Back to My Bity 🏙️</Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+    </ScrollView>
+  );
+}
+
+  if (screen === 'conversationKits') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🧠 Conversation Kits</Text>
+
+      <Text style={styles.subtitle}>
+        Softer words for hard moments.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>💜</Text>
+
+        <Text style={styles.cardText}>
+          The goal is connection, not winning.
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          Instead of: “What’s wrong with you?”
+        </Text>
+
+        <Text style={styles.entryText}>
+          Try: “I can tell something feels heavy.”
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+        <Text style={styles.entryText}>
+          Instead of: “You never talk to me.”
+        </Text>
+
+        <Text style={styles.entryText}>
+          Try: “I miss hearing your thoughts.”
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentPortal')}
+      >
+        <Text style={styles.buttonText}>
+          Back to Parent Portal 👨‍👩‍👧
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}  
+if (screen === 'parentReflections') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>💭 Parent Reflections</Text>
+
+      <Text style={styles.subtitle}>
+        A private space for parents to pause, reflect, and respond with care.
+      </Text>
+
+      <View style={styles.messageCard}>
+
+        <Text style={styles.cardEmoji}>💜</Text>
+
+        <Text style={styles.cardText}>
+          Parenting while emotionally exhausted is still parenting.
+        </Text>
+
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          ✍️ Reflect before reacting.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🌙 Your child may need safety before solutions.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🧠 Curiosity connects better than pressure.
+        </Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentPortal')}
+      >
+        <Text style={styles.buttonText}>
+          Back to Parent Portal 👨‍👩‍👧
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}
+if (screen === 'supportAlerts') {
+  return (
+    <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
+
+      <Text style={styles.logo}>Se’kret Bip</Text>
+
+      <Text style={styles.welcome}>🚨 Support Alerts</Text>
+
+      <Text style={styles.subtitle}>
+        Gentle awareness. Never surveillance.
+      </Text>
+
+      <View style={styles.messageCard}>
+        <Text style={styles.cardEmoji}>🌙</Text>
+
+        <Text style={styles.cardText}>
+          Bip only shares emotional support signals — not private thoughts.
+        </Text>
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          💜 Mood energy lower than usual this week.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🌙 Increased late-night Bip Calmly sessions.
+        </Text>
+
+        <Text style={styles.entryText}>
+          🫧 Suggested support style: softer check-ins.
+        </Text>
+
+      </View>
+
+      <View style={styles.entryCard}>
+
+        <Text style={styles.entryText}>
+          ✅ Helpful:
+        </Text>
+
+        <Text style={styles.entryText}>
+          “I’m here if you need me.”
+        </Text>
+
+        <Text style={styles.entryText}>
+          ❌ Avoid:
+        </Text>
+
+        <Text style={styles.entryText}>
+          “What’s going on with you lately?”
+        </Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setScreen('parentPortal')}
+      >
+        <Text style={styles.buttonText}>
+          Back to Parent Portal 👨‍👩‍👧
+        </Text>
+      </TouchableOpacity>
+
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
+
+    </ScrollView>
+  );
+}
+if (screen === 'comfort') {
     return (
       <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
         <Text style={styles.logo}>Se’kret Bip</Text>
@@ -583,6 +1151,26 @@ if (screen === 'circle') {
         style={styles.button}
         onPress={() => setScreen('comfort')}
       >
+<TouchableOpacity
+  style={[
+    styles.button,
+    userRole === 'teen' && {
+      backgroundColor: '#475569',
+      opacity: 0.6,
+    },
+  ]}
+  onPress={() => {
+    if (userRole === 'parent') {
+      setScreen('parentPortal');
+    }
+  }}
+>
+  <Text style={styles.buttonText}>
+    {userRole === 'teen'
+      ? '🔒 Parent Portal'
+      : '👨‍👩‍👧 Parent Portal'}
+  </Text>
+</TouchableOpacity>
         <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
       </TouchableOpacity>
 
@@ -631,6 +1219,27 @@ if (screen === 'circle') {
       <Text style={styles.logo}>Se’kret Bip</Text>
       <Text style={styles.heroText}>{getHeroText()}</Text>
 
+<TouchableOpacity
+
+  style={styles.smallButton}
+
+  onPress={switchRole}
+
+>
+
+  <Text style={styles.smallButtonText}>
+
+    {userRole === 'teen'
+
+      ? '💜 Teen Mode'
+
+      : '👨‍👩‍👧 Parent Mode'}
+
+  </Text>
+
+</TouchableOpacity>
+
+<Text style={styles.subtitle}>
       <Text style={styles.subtitle}>
         A safe place for your emotions, thoughts, and growth.
       </Text>
@@ -847,6 +1456,100 @@ reactionText: {
     textAlign: 'center',
     marginTop: 4,
   },
+  
+  messageCard: {
+  width: '100%',
+  backgroundColor: '#1E293B',
+  padding: 24,
+  borderRadius: 30,
+  marginBottom: 28,
+  alignItems: 'center',
+},
+
+button: {
+  backgroundColor: '#3B82F6',
+  width: '100%',
+  paddingVertical: 18,
+  borderRadius: 22,
+  alignItems: 'center',
+  marginBottom: 22,
+},
+
+smallButton: {
+  backgroundColor: '#334155',
+  paddingVertical: 10,
+  paddingHorizontal: 18,
+  borderRadius: 18,
+},
+
+smallButtonText: {
+  color: '#FFFFFF',
+  fontWeight: '800',
+  fontSize: 15,
+},
+
+journalInput: {
+  width: '100%',
+  minHeight: 180,
+  backgroundColor: '#1E293B',
+  borderRadius: 24,
+  padding: 20,
+  color: '#FFFFFF',
+  fontSize: 17,
+  textAlignVertical: 'top',
+  marginBottom: 24,
+},
+
+entryCard: {
+  width: '100%',
+  backgroundColor: '#1E293B',
+  borderRadius: 24,
+  padding: 20,
+  marginBottom: 18,
+},
+
+moodRow: {
+  flexDirection: 'row',
+  gap: 14,
+  marginBottom: 24,
+},
+
+moodBubble: {
+  width: 70,
+  height: 70,
+  borderRadius: 35,
+  backgroundColor: '#1E293B',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+selectedMoodBubble: {
+  backgroundColor: '#3B82F6',
+},
+
+moodEmoji: {
+  fontSize: 30,
+},
+
+themeRow: {
+  flexDirection: 'row',
+  gap: 18,
+  marginBottom: 30,
+},
+
+themeBubble: {
+  width: 80,
+  height: 80,
+  borderRadius: 40,
+  backgroundColor: '#1E293B',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+themeEmoji: {
+  fontSize: 34,
+},
+
 
   activeNavText: {
     color: '#FFFFFF',
