@@ -431,7 +431,11 @@ comfortLevel:
 
       </View>
 
-            <BottomNav />
+          <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
 
     </ScrollView>
   );
@@ -477,7 +481,11 @@ comfortLevel:
         <Text style={styles.buttonText}>Back to Se’kret Pages 💜</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -585,7 +593,11 @@ comfortLevel:
 
       </View>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
 
     </ScrollView>
   );
@@ -624,7 +636,11 @@ if (screen === 'mindReset') {
         <Text style={styles.buttonText}>Back to Bip Calmly 🌙</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+    <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -654,7 +670,11 @@ if (screen === 'bodyReset') {
         <Text style={styles.buttonText}>Back to Bip Calmly 🌙</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -765,7 +785,11 @@ if (screen === 'growth') {
         <Text style={styles.entryText}>🌐 Circle posts: {circlePosts.length}</Text>
       </View>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -791,7 +815,11 @@ if (screen === 'growth') {
           ))
         )}
 
-        <BottomNav />
+       <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
       </ScrollView>
     );
   }
@@ -938,7 +966,11 @@ if (screen === 'growth') {
         ))
       )}
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1032,7 +1064,11 @@ if (screen === 'circle') {
         ))
       )}
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1208,8 +1244,11 @@ if (screen === 'bity') {
         </Text>
       </View>
 
-      <BottomNav />
-
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1289,7 +1328,11 @@ if (screen === 'bity') {
   </Text>
 </TouchableOpacity>
 
-      <BottomNav />
+   <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
 
     </ScrollView>
   );
@@ -1395,7 +1438,11 @@ if (screen === 'parentBridge') {
         <Text style={styles.buttonText}>Back to My Bity 🏙️</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1452,7 +1499,11 @@ if (screen === 'parentBridge') {
         </Text>
       </TouchableOpacity>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
 
     </ScrollView>
   );
@@ -1506,7 +1557,11 @@ if (screen === 'parentBridge') {
         </Text>
       </TouchableOpacity>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1584,8 +1639,11 @@ if (screen === 'sharedGrowth') {
         </Text>
       </TouchableOpacity>
 
-      <BottomNav />
-
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1642,7 +1700,11 @@ if (screen === 'sharedGrowth') {
         </Text>
       </TouchableOpacity>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }  if (screen === 'comfort') {
@@ -1717,7 +1779,11 @@ if (screen === 'sharedGrowth') {
         <Text style={styles.buttonText}>Back to Bip Calmly 🌙</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }if (screen === 'musicVibes') {
@@ -1751,7 +1817,11 @@ if (screen === 'sharedGrowth') {
         <Text style={styles.buttonText}>Back to Extra Support 🚨</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -1828,7 +1898,11 @@ if (screen === 'sharedGrowth') {
         <Text style={styles.buttonText}>⚙️ Settings</Text>
       </TouchableOpacity>
 
-      <BottomNav />
+      <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
@@ -2002,7 +2076,11 @@ if (screen === 'sharedGrowth') {
 
       </View>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
 
     </ScrollView>
   );
@@ -2045,7 +2123,11 @@ if (screen === 'sharedGrowth') {
 
       <Text style={styles.currentMood}>Current Mood: {mood}</Text>
 
-      <BottomNav />
+     <BottomNav
+  screen={screen}
+  setScreen={setScreen}
+  styles={styles}
+/>
     </ScrollView>
   );
 }
