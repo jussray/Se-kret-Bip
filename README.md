@@ -850,7 +850,7 @@ reactionText: {
     textAlign: 'center',
     marginTop: 4,
   },
-
+  }
     const styles = StyleSheet.create({
 
   ...
