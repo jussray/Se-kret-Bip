@@ -1148,10 +1148,6 @@ if (screen === 'comfort') {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.button}
-        onPress={() => setScreen('comfort')}
-      >
-<TouchableOpacity
   style={[
     styles.button,
     userRole === 'teen' && {
@@ -1170,6 +1166,13 @@ if (screen === 'comfort') {
       ? '🔒 Parent Portal'
       : '👨‍👩‍👧 Parent Portal'}
   </Text>
+</TouchableOpacity>
+
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => setScreen('comfort')}
+>
+  <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
 </TouchableOpacity>
         <Text style={styles.buttonText}>🚨 Comfort Mode</Text>
       </TouchableOpacity>
