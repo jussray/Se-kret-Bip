@@ -186,6 +186,16 @@ const reactToPost = (postId, reactionType) => {
         : post
     )
   );
+
+  const newReactionMoment = {
+    id: Date.now(),
+    mood: 'Connected',
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString(),
+    note: `Someone connected with your Bip using ${reactionType} ✨`,
+  };
+
+  setMoodHistory([newReactionMoment, ...moodHistory]);
 };
 
  const changeMessage = () => {
