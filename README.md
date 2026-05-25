@@ -217,7 +217,7 @@ const changeMessage = () => {
           </View>
         ))}
 
-        <BottomNav />
+      <BottomNav screen={screen} setScreen={setScreen} styles={styles} />
       </ScrollView>
     );
   }
