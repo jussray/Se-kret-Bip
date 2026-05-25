@@ -190,25 +190,6 @@ const changeMessage = () => {
 const changeMessage = () => {
   setMessageIndex((prevIndex) => (prevIndex + 1) % comfortMessages.length);
 };
-  
-const BottomNav = () => (
-    <View style={styles.bottomNav}>
-     {[
-  ['home', '🏠', 'Home'],
-  ['journal', '📝', 'Journal'],
-  ['calm', '🌙', 'Calm'],
-  ['voice', '🎙️', 'Voice'],
-  ['more', '☰', 'More'],
-].map((item) => (
-        <TouchableOpacity key={item[0]} onPress={() => setScreen(item[0])} style={styles.navItem}>
-          <Text style={styles.navIcon}>{item[1]}</Text>
-          <Text style={[styles.navText, screen === item[0] && styles.activeNavText]}>
-            {item[2]}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
 
   if (screen === 'journal') {
     return (
