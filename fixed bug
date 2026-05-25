@@ -709,7 +709,7 @@ if (screen === 'growth') {
     <ScrollView contentContainerStyle={[styles.container, { backgroundColor: getBackground() }]}>
       <Text style={styles.logo}>Se’kret Bip</Text>
 
-      <Text style={styles.welcome}>🌱 Bippin2</Text>
+    <Text style={styles.welcome}>🌱 Bippin2Grow</Text>
 
       <Text style={styles.subtitle}>
         Your growth space changes from your Home mood and your growth path.
