@@ -477,6 +477,15 @@ const BottomNav = () => (
         🌙 Quick Resets
       </Text>
 
+<TouchableOpacity
+  style={styles.button}
+  onPress={() => setScreen('comfort')}
+>
+  <Text style={styles.buttonText}>
+    🚨 Need Extra Support?
+  </Text>
+</TouchableOpacity>
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => setScreen('mindReset')}
