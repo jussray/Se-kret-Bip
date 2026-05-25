@@ -157,16 +157,21 @@ const saveCirclePost = () => {
   if (circlePostText.trim() === '') return;
 
   const newPost = {
-    id: Date.now(),
-    text: circlePostText,
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
-    reactions: {
-      glow: 0,
-      heart: 0,
-      moon: 0,
-    },
-  };
+  id: Date.now(),
+  text: circlePostText,
+  date: new Date().toLocaleDateString(),
+  time: new Date().toLocaleTimeString(),
+
+  emotionalImpact: 0,
+  supportEnergy: 0,
+  comfortLevel: 0,
+
+  reactions: {
+    glow: 0,
+    heart: 0,
+    moon: 0,
+  },
+};
 
   setCirclePosts([newPost, ...circlePosts]);
   setCirclePostText('');
