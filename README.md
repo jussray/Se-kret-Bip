@@ -840,13 +840,6 @@ reactionText: {
     textAlign: 'center',
   },
 
-  navText: {
-    color: '#E2E8F0',
-    fontSize: 14,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginTop: 4,
-  }
    navText: {
     color: '#E2E8F0',
     fontSize: 14,
