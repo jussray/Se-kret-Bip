@@ -11,7 +11,8 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function App() {
-  
+
+  const [growthPath, setGrowthPath] = useState('girl');
   const [circlePostText, setCirclePostText] = useState('');
   const [circlePosts, setCirclePosts] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
